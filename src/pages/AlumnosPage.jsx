@@ -42,4 +42,5 @@ const AlumnosPage = () => {
     </>
   );
 };
+
 export default AlumnosPage;
