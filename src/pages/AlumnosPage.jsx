@@ -1,24 +1,23 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 
 const AlumnosPage = () => {
-  const [alumnos] = useState([
-    {
-      id: 1,
-      nombre: "Cesar",
-    },
-    {
-      id: 2,
-      nombre: "Cristobal",
-    },
-    {
-      id: 3,
-      nombre: "Daniel",
-    },
-  ]);
-
+    const [alumnos] = useState([
+      {
+        id: 1,
+        nombre: "Cesar",
+      },
+      {
+        id: 2,
+        nombre: "Cristobal",
+      },
+      {
+        id: 3,
+        nombre: "Daniel",
+      },
+    ]);
   return (
-    <>
+        <>
       <table>
         <thead>
           <tr>
@@ -41,6 +40,7 @@ const AlumnosPage = () => {
       </table>
     </>
   );
-};
+  
+}
 
-export default AlumnosPage;
+export default AlumnosPage

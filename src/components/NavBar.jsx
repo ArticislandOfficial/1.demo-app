@@ -54,6 +54,14 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
+          to="/alumno"
+          className={({ isActive }) => (isActive ? "activo" : undefined)}
+        >
+          Alumno Page
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/alumnos"
           className={({ isActive }) => (isActive ? "activo" : undefined)}
         >

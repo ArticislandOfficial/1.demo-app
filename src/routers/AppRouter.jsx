@@ -13,8 +13,9 @@ import HelpPage from "../pages/HelpPage";
 import NavBar from "../components/NavBar";
 import BlogPage from "../pages/BlogPage";
 import UcamperPage from "../pages/UcamperPage";
-import AlumnoPage from "../pages/AlumnoPage";
 import AlumnosPage from "../pages/AlumnosPage";
+import AlumnoPage from "../pages/AlumnoPage";
+
 
 
 
@@ -30,7 +31,8 @@ const AppRouter = () => {
         <Route path="/ucamper/:id/:nombre" element={<UcamperPage />} />
 
         <Route path="/alumnos" element={<AlumnosPage />} />
-        <Route path="/alumno/:id_alumno" element={<AlumnoPage />} />
+        <Route path="/alumno/:id_alumno" element={<AlumnoPage />} /> 
+
 
         <Route
           path="/blog"
