@@ -1,9 +1,15 @@
-import React from 'react'
-import { BrowserRouter as Router,Routes,Route,Navigate, NavLink } from 'react-router-dom'
-import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
-import HelpPage from '../pages/HelpPage';
-import ContactPage from '../pages/ContactPage';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  NavLink,
+} from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import ContactPage from "../pages/ContactPage";
+import HelpPage from "../pages/HelpPage";
 
 const AppRouter = () => {
   return (
@@ -52,7 +58,6 @@ const AppRouter = () => {
       </Routes>
     </Router>
   );
-  
-}
+};
 
-export default AppRouter
+export default AppRouter;
