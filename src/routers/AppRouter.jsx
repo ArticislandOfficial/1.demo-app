@@ -4,57 +4,45 @@ import {
   Routes,
   Route,
   Navigate,
-  NavLink,
+  
 } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
 import HelpPage from "../pages/HelpPage";
+import NavBar from "../components/NavBar";
+import BlogPage from "../pages/BlogPage";
+import UcamperPage from "../pages/UcamperPage";
+import AlumnoPage from "../pages/AlumnoPage";
+import AlumnosPage from "../pages/AlumnosPage";
+
+
 
 const AppRouter = () => {
   return (
     <Router>
-      <ul>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "activo" : undefined)}
-          >
-            Home Page
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? "activo" : undefined)}
-          >
-            About Page
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => (isActive ? "activo" : undefined)}
-          >
-            Contact Page
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/help"
-            className={({ isActive }) => (isActive ? "activo" : undefined)}
-          >
-            Help Page
-          </NavLink>
-        </li>
-      </ul>
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/help" element={<HelpPage />} />
+        <Route path="/ucamper/:id/:nombre" element={<UcamperPage />} />
 
-        <Route path="*" element={<Navigate />} />
+        <Route path="/alumnos" element={<AlumnosPage />} />
+        <Route path="/alumno/:id_alumno" element={<AlumnoPage />} />
+
+        <Route
+          path="/blog"
+          element={
+            <BlogPage
+              articulos={["Articulo 1", "Articulo 2", "Articulo 3"]}
+              nombre="Jesus"
+            />
+          }
+        />
+
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
