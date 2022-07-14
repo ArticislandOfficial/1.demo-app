@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from "react";
+//clase de props
 const BlogPage = (props) => {
   return (
     <>
@@ -12,4 +12,4 @@ const BlogPage = (props) => {
   );
 };
 
-export default BlogPage
+export default BlogPage;
