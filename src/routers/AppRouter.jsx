@@ -1,11 +1,11 @@
-// Aqui se crean las rutas para todos los enlaces que tengas en tu componente NavBarbar
 import React from "react";
 import {
   BrowserRouter as Router,
-  Routes,
   Route,
+  Routes,
   Navigate,
 } from "react-router-dom";
+
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
@@ -13,11 +13,12 @@ import HelpPage from "../pages/HelpPage";
 import NavBar from "../components/NavBar";
 import BlogPage from "../pages/BlogPage";
 import UcamperPage from "../pages/UcamperPage";
-import AlumnosPage from "../pages/AlumnosPage";
 import AlumnoPage from "../pages/AlumnoPage";
-import EstadoPage from "../pages/EstadoPage";
+import AlumnosPage from "../pages/AlumnosPage";
+import EstadosPage from "../pages/EstadosPage";
+import PostsPage from "../pages/PostsPage";
+import EffectosPage from "../pages/EffectosPage";
 import PostPage from "../pages/PostPage";
-import EffectosPages from "../pages/EffectosPages";
 
 const AppRouter = () => {
   return (
@@ -43,10 +44,13 @@ const AppRouter = () => {
               />
             }
           />
-          <Route path="/estados" element={<EstadoPage />} />
-          <Route path="/posts" element={<PostPage />} />
-          <Route path="/efectos" element={<EffectosPages />} />
-          
+
+          <Route path="/estados" element={<EstadosPage />} />
+          <Route path="/posts" element={<PostsPage />} />
+          <Route path="/post/:idPost" element={<PostPage />} />
+
+          <Route path="/efectos" element={<EffectosPage />} />
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

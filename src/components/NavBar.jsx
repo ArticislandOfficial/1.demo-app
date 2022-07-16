@@ -1,5 +1,6 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -114,6 +115,7 @@ const NavBar = () => {
                 Alumnos Page
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/posts"
@@ -125,6 +127,7 @@ const NavBar = () => {
                 Posts
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/efectos"
@@ -133,9 +136,10 @@ const NavBar = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-           Efectos 
+                Efectos
               </NavLink>
             </li>
+
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -180,4 +184,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar
+export default NavBar;

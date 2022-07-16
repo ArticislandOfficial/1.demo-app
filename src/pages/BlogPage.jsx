@@ -1,5 +1,5 @@
 import React from "react";
-//clase de props
+
 const BlogPage = (props) => {
   return (
     <>
