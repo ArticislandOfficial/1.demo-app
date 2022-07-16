@@ -139,8 +139,19 @@ const NavBar = () => {
                 Efectos
               </NavLink>
             </li>
-
-            <li className="nav-item dropdown">
+            
+            <li className="nav-item">
+              <NavLink
+                to="/Books"
+                aria-current="page"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                BooksPage
+              </NavLink>
+            </li>
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="/"
@@ -171,7 +182,7 @@ const NavBar = () => {
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link disabled" href="/">
                 Disabled
