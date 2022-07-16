@@ -17,6 +17,7 @@ import AlumnosPage from "../pages/AlumnosPage";
 import AlumnoPage from "../pages/AlumnoPage";
 import EstadoPage from "../pages/EstadoPage";
 import PostPage from "../pages/PostPage";
+import EffectosPages from "../pages/EffectosPages";
 
 const AppRouter = () => {
   return (
@@ -42,8 +43,10 @@ const AppRouter = () => {
               />
             }
           />
-          <Route path="/estados" element={<EstadoPage />}></Route>
-          <Route path="/posts" element={<PostPage />}></Route>
+          <Route path="/estados" element={<EstadoPage />} />
+          <Route path="/posts" element={<PostPage />} />
+          <Route path="/efectos" element={<EffectosPages />} />
+          
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

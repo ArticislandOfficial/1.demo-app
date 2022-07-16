@@ -125,6 +125,17 @@ const NavBar = () => {
                 Posts
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/efectos"
+                aria-current="page"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+           Efectos 
+              </NavLink>
+            </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
