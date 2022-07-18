@@ -153,7 +153,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/Person"
+                to="/Persons"
                 aria-current="page"
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"

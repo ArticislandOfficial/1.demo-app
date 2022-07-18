@@ -53,7 +53,7 @@ const AppRouter = () => {
 
           <Route path="/efectos" element={<EffectosPage />} />
           <Route path="/Books" element={<BooksPage/>} />
-          <Route path="/" element={<PersonPage/>} />
+          <Route path="/Persons" element={<PersonPage/>} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

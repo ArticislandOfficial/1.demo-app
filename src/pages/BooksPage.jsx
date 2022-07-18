@@ -29,7 +29,7 @@ const BooksPage = () => {
         <tbody>          
           {bookPost.map((post) => {
             return (
-              <tr >
+              <tr key={post.id}>
                 <td>{post.id} </td>
                 <td>{post.title}</td>
                 <td>{post.author}</td>

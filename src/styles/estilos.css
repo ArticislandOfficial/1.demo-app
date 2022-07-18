@@ -1,3 +1,6 @@
 .activo {
     color: red;
 }
+.formato{
+    list-style-type: none;
+}
