@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const PeliculaPage = () => {
 const { id_pelicula } = useParams();
-const [peli, setPeli] = useState([]);
-  const obtenerPeliculas = async () => {
-      const resp = await getDocs(collection(db, "fir-app-4b550"));
-      const peliculas = resp.docs.map((pelicula) => ({
-        id: pelicula.id,
-        ...pelicula
-      }));
-      console.log(peliculas);
-      setPeli(peliculas);
-    }
+const [peli, setPeli] = useState({});
+ 
     useEffect(() => {
-      obtenerPeliculas();
+      const obtenerPelicula = async () => {
+        const resp = await getDoc(doc(db, "fir-app-4b550", id_pelicula));
+        setPeli({
+          id: resp.id,
+          ...resp.data(),
+        });
+      };
+
+      obtenerPelicula();
     }, [id_pelicula]);
     
 
@@ -27,11 +27,10 @@ const [peli, setPeli] = useState([]);
       </header>
       <main>
         <article>
-          <ul>
-            <li>{peli.nombre}</li>
-            <li></li>
-            <li></li>
-          </ul>
+          <h2>{peli.id}</h2>
+          <h3>{peli.nombre}</h3>
+          <p>{peli.descripcion}</p>
+          <p>{peli.precio}</p>
         </article>
       </main>
     </>
