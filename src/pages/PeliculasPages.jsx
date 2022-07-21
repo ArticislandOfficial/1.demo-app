@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { db } from "../firebase/firebase";
 import {
   collection,
@@ -20,31 +21,33 @@ const PeliculasPage = () => {
   const [movies, setMovies] = useState([]);
 
   const crearPelicula = async () => {
-    const coleccion = collection(db, 'fir-app-4b550');
+    const coleccion = collection(db, "fir-app-4b550");
     await addDoc(coleccion, form);
     await obtenerPeliculas();
   };
 
   const eliminarPelicula = async (id) => {
-    const coleccion = doc(db, 'fir-app-4b550', id);
+    const coleccion = doc(db, "fir-app-4b550", id);
     await deleteDoc(coleccion);
 
     await obtenerPeliculas();
   };
-
+  const verMasPelicualas = async () => {
+    console.log("ver mas peliculas");
+  };
   const actualizarPelicula = async (id) => {
-    const coleccion = doc(db, 'fir-app-4b550', id);
+    const coleccion = doc(db, "fir-app-4b550", id);
     await updateDoc(coleccion, form);
     await obtenerPeliculas();
   };
 
   const obtenerPeliculas = async () => {
-    const resp = await getDocs(collection(db, 'fir-app-4b550'));
+    const resp = await getDocs(collection(db, "fir-app-4b550"));
     const peliculas = resp.docs.map((pelicula) => ({
       id: pelicula.id,
       ...pelicula.data(),
     }));
-
+    console.log(peliculas);
     setMovies(peliculas);
   };
 
@@ -130,6 +133,7 @@ const PeliculasPage = () => {
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Informacion</th>
                 <th scope="col">Actualizar</th>
                 <th scope="col">Eliminar</th>
               </tr>
@@ -142,6 +146,15 @@ const PeliculasPage = () => {
                     <td>{obj.nombre}</td>
                     <td>{obj.descripcion}</td>
                     <td>{obj.precio}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn btn-info"
+                        onClick={() => verMasPelicualas()}
+                      >
+                        <NavLink to={`/pelicula/${obj.id}`}>Ver mas ..</NavLink>
+                      </button>
+                    </td>
                     <td>
                       <button
                         type="button"

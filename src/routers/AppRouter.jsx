@@ -20,6 +20,7 @@ import PostsPage from "../pages/PostsPage";
 import EffectosPage from "../pages/EffectosPage";
 import PostPage from "../pages/PostPage";
 import PeliculasPages from "../pages/PeliculasPages";
+import PeliculaPage from "../pages/PeliculaPage";
 
 const AppRouter = () => {
   return (
@@ -52,6 +53,8 @@ const AppRouter = () => {
 
           <Route path="/efectos" element={<EffectosPage />} />
           <Route path="/peliculas" element={<PeliculasPages />} />
+          <Route path="/pelicula/:id_pelicula" element={<PeliculaPage />} />
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
