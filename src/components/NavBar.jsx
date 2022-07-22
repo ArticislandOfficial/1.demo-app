@@ -150,7 +150,29 @@ const NavBar = () => {
                 Peliculas
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item">
+              <NavLink
+                to="/registrar-usuario"
+                aria-current="page"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                RegistroPage
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/login"
+                aria-current="page"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                LoginPage
+              </NavLink>
+            </li>
+            {/*<li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="/"
@@ -161,7 +183,7 @@ const NavBar = () => {
               >
                 Dropdown
               </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="/">
                     Action
@@ -186,7 +208,7 @@ const NavBar = () => {
               <a className="nav-link disabled" href="/">
                 Disabled
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
