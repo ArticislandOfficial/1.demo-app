@@ -12,6 +12,9 @@ const EstadosPage = () => {
   const cambiarNombre = () => {
     //nombre = "Martin" Esto no se debe hacer nunca con las variables de estado
     setNombre("Martin");
+    if (nombre === "Martin") {
+      setNombre("Daniel")
+    }
   };
 
   return (

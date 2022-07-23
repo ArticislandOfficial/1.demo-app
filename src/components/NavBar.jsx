@@ -5,9 +5,9 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
       <div className="container">
-        <a className="navbar-brand" href="/">
+        {/* <a className="navbar-brand" href="/">
           Navbar
-        </a>
+        </a> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -150,7 +150,7 @@ const NavBar = () => {
                 Peliculas
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink
                 to="/registrar-usuario"
                 aria-current="page"
@@ -160,8 +160,8 @@ const NavBar = () => {
               >
                 RegistroPage
               </NavLink>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <NavLink
                 to="/login"
                 aria-current="page"
@@ -171,8 +171,8 @@ const NavBar = () => {
               >
                 LoginPage
               </NavLink>
-            </li>
-            {/*<li className="nav-item dropdown">
+            </li> */}
+            <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="/"
@@ -181,30 +181,38 @@ const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Registro
               </a>
-               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="/">
-                    Action
-                  </a>
+                  <NavLink
+                    to="/registrar-usuario"
+                    aria-current="page"
+                    className="dropdown-item"
+                  >
+                    Registro
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
-                    Another action
-                  </a>
+                  <NavLink
+                    to="/login"
+                    aria-current="page"
+                    className="dropdown-item"
+                  >
+                    LoginPage
+                  </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
                   <a className="dropdown-item" href="/">
                     Something else here
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link disabled" href="/">
                 Disabled
               </a>

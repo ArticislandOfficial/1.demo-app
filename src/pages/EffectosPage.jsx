@@ -23,6 +23,7 @@ const EffectosPage = () => {
   // Se ejecuta cuando se detecta un cambio en cualquier elemento del arreglo de dependencias
   useEffect(() => {
     console.log("Se detecto el cambio en la variable nombre");
+    console.log(nombre);
   }, [nombre]);
 
   // Se ejecuta cuando se detecta cualquier cambio
