@@ -37,11 +37,13 @@ const {idlibro} = useParams();
       </header>
       <main>
         <article>
-          <h2>{libro.titulo}</h2>
-          <h3>{libro.autor}</h3>
-          <h6>{libro.id}</h6>
-          <p>{libro.editorial}</p>
-          <p>{libro.año}</p>
+          <h2>Titulo: {libro.titulo}</h2>
+          <h3>Editorial: {libro.editorial}</h3>
+          <h6>IDfirestore: {libro.id}</h6>
+          <p>Autor: {libro.autor}</p>
+          <p>
+            Año de Publicaciòn: <b>{libro.año}</b>
+          </p>
         </article>
       </main>
     </>
