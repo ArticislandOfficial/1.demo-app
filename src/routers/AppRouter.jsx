@@ -24,6 +24,7 @@ import PeliculaPage from "../pages/PeliculaPage";
 import RegistrarUsuario from "../pages/RegistrarUsuario";
 import LoginPage from "../pages/LoginPage";
 import LibrosPage from "../pages/LibrosPage";
+import LibroPage from "../pages/LibroPage";
 
 const AppRouter = () => {
   return (
@@ -60,6 +61,7 @@ const AppRouter = () => {
           <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/libros" element={<LibrosPage />} />
+          <Route path="/libro" element={<LibroPage />} />
 
 
           <Route path="*" element={<Navigate to="/" />} />
