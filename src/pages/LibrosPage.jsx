@@ -1,6 +1,14 @@
-import React, { useState } from "react";
-import {db} from '../firebase/firebase';
-import{ collection,addDoc } from 'firebase/firestore'
+import React, { useState, useEffect } from "react";
+import { db } from "../firebase/firebase";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+
 
 const incioFormulario = {
   autor: "",
@@ -11,10 +19,39 @@ const incioFormulario = {
 
 const LibrosPage = () => {
   const [form, setForm] = useState(incioFormulario);
+  const [libro, setLibro] = useState([]);
+  useEffect(() => {
+    obtenerLibros();
+  }, []);
+  //Crea libro en firibase "C"
   const crearLibro = async () => {
-    const coleccion =  collection(db,'libros')
+    const coleccion = collection(db, "libros");
     await addDoc(coleccion, form);
+    await obtenerLibros();
     console.log(form);
+  };
+  // Lee los libros de firebase "R"
+  const obtenerLibros = async () => {
+    const traeColecion = await getDocs(collection(db, "libros"));
+    const dataFireStore = traeColecion.docs.map((libro) => ({
+      id: libro.id,
+      ...libro.data(),
+    }));
+    setLibro(dataFireStore);
+  };
+// Actualiza los libros "U"
+  const actualizarLibros = async (id) => {
+    console.log("actualizada");
+    const coleccion = doc(db, "libros", id);
+    await updateDoc(coleccion, form);
+    await obtenerLibros();
+  };
+  //Elimina el libro por id "D"
+  const eliminarLibro = async (id) => {
+    // console.log(id);
+    const coleccion = doc(db, "libros", id);
+    await deleteDoc(coleccion);
+    await obtenerLibros();
   };
 
   return (
@@ -71,8 +108,11 @@ const LibrosPage = () => {
                 <label htmlFor="año" className="form-label">
                   Año de publicacion
                 </label>
-                <input type="number" className="form-control" id="año"
-                onChange={(e)=>setForm({...form,año: e.target.value})}
+                <input
+                  type="number"
+                  className="form-control"
+                  id="año"
+                  onChange={(e) => setForm({ ...form, año: e.target.value })}
                 />
               </div>
             </div>
@@ -85,9 +125,13 @@ const LibrosPage = () => {
           role="group"
           aria-label="Basic mixed styles example"
         >
-          <button type="button" className="btn btn-info">
-            Middle
-          </button>
+          {/* <button
+            type="button"
+            className="btn btn-info"
+            onClick={obtenerLibros}
+          >
+            obtener libros
+          </button> */}
           <button
             type="button"
             className="btn btn-success"
@@ -111,26 +155,39 @@ const LibrosPage = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="px-4 text-center">
-              <th scope="row">1</th>
-              <td>Stephen King</td>
-              <td>It</td>
-              <td>De Bolsillo</td>
-              <td>2016</td>
-              <td className="">
-                <div>
-                  <button type="button" className="mx-1 btn btn-success">
-                    Actualizar
-                  </button>
-                  <button type="button" className="mx-1 btn btn-danger">
-                    Eliminar
-                  </button>
-                  <button type="button" className="mx-1 btn btn-info">
-                    Ver mas..
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {libro.map((propObjeto) => {
+              return (
+                <tr key={propObjeto.id} className="px-4 text-center">
+                  <td>{propObjeto.id}</td>
+                  <td>{propObjeto.autor}</td>
+                  <td>{propObjeto.titulo}</td>
+                  <td>{propObjeto.editorial}</td>
+                  <td>{propObjeto.año}</td>
+                  <td>
+                    <div>
+                      <button
+                        type="button"
+                        className="mx-1 btn btn-warning"
+                        onClick={() => actualizarLibros(propObjeto.id)}
+                      >
+                        Actualizar
+                      </button>
+
+                      <button
+                        type="button"
+                        className="mx-1 btn btn-danger"
+                        onClick={() => eliminarLibro(propObjeto.id)}
+                      >
+                        Eliminar
+                      </button>
+                      <button type="button" className="mx-1 btn btn-info">
+                        Ver mas..
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>
