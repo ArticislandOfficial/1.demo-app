@@ -150,6 +150,16 @@ const NavBar = () => {
                 Peliculas
               </NavLink>
             </li>
+            <li>
+                  <NavLink
+                    to="/libros"
+                    aria-current="page"
+                    className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"}
+                  >
+                    LibrosPage
+                  </NavLink>
+                </li>
             {/* <li className="nav-item">
               <NavLink
                 to="/registrar-usuario"
@@ -202,6 +212,7 @@ const NavBar = () => {
                     LoginPage
                   </NavLink>
                 </li>
+                
                 {/* <li>
                   <hr className="dropdown-divider" />
                 </li>
