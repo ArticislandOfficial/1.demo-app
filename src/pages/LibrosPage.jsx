@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { db } from "../firebase/firebase";
 import {
   collection,
@@ -180,8 +181,9 @@ const LibrosPage = () => {
                       >
                         Eliminar
                       </button>
+
                       <button type="button" className="mx-1 btn btn-info">
-                        Ver mas..
+                        <NavLink to={`/libro/${propObjeto.id}`}>Ver mas..</NavLink>
                       </button>
                     </div>
                   </td>

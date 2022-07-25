@@ -61,7 +61,7 @@ const AppRouter = () => {
           <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/libros" element={<LibrosPage />} />
-          <Route path="/libro" element={<LibroPage />} />
+          <Route path="/libro/:idlibro" element={<LibroPage />} />
 
 
           <Route path="*" element={<Navigate to="/" />} />
