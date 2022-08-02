@@ -6,28 +6,30 @@ import {  doc, getDoc } from "firebase/firestore";
 const LibroPage = () => {
 const [libro, setLibro] = useState({});
 const {idlibro} = useParams();
-// useEffect(() => {
-//     const obtenerLibro = async ()=>{
-//      const coleccion = await getDoc(doc(db,'libros',idlibro));
-//      setLibro({
-//         id: coleccion.id,
-//         ...coleccion.data().
-//      });  
-//     }
-//     obtenerLibro()
-// }
-// }, [idlibro])
-  useEffect(() => {
-    const obtenerPelicula = async () => {
-      const resp = await getDoc(doc(db, "libros", idlibro));
-      setLibro({
-        id: resp.id,
-        ...resp.data(),
-      });
-    };
 
-    obtenerPelicula();
-  }, [idlibro]);
+useEffect(() => {
+    const obtenerLibro = async ()=>{
+     const coleccion = await getDoc(doc(db,'libros',idlibro));
+     setLibro({
+        id: coleccion.id,
+        ...coleccion.data(),
+     });  
+    };
+    obtenerLibro()
+
+}, [idlibro]);
+
+  // useEffect(() => {
+  //   const obtenerLibro = async () => {
+  //     const coleccion = await getDoc(doc(db, "libros", idlibro));
+  //     setLibro({
+  //       id: coleccion.id,
+  //       ...coleccion.data(),
+  //     });
+  //   };
+
+  //   obtenerLibro();
+  // }, [idlibro]);
 
 
   return (
