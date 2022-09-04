@@ -8,6 +8,10 @@ const EstadosPage = () => {
     // contador = contador + 1; Esto no se debe hacer nunca con las variables de estado
     setContador(contador + 1);
   };
+  const disminuirContador = () => {
+    // contador = contador + 1; Esto no se debe hacer nunca con las variables de estado
+    setContador(contador - 1);
+  };
 
   const cambiarNombre = () => {
     //nombre = "Martin" Esto no se debe hacer nunca con las variables de estado
@@ -31,6 +35,9 @@ const EstadosPage = () => {
           </button>
           <button type="button" onClick={aumentarContador}>
             Aumentar contador
+          </button>
+          <button type="button" onClick={disminuirContador}>
+           disminuirContador
           </button>
         </article>
       </main>
