@@ -11,13 +11,14 @@ const PostsPage = () => {
     // console.log(data);
     setPosts(data);
   };
-
+// Ejercicio individual+++++++++++++++++++++
   const extrarLibros = async () => {
     const result = await fetch("https://fakerapi.it/api/v1/books");
     const resultado = await result.json();
 
     console.log(resultado.data);
   };
+// ejercicio individual+++++++++++++++++++++ 
 
   useEffect(() => {
     extraerPosts();

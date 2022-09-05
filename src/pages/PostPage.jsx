@@ -11,11 +11,12 @@ const PostPage = () => {
         `https://jsonplaceholder.typicode.com/posts/${idPost}`
       );
       const data = await resultado.json();
-
+// Esta linea hace que se guarde en el useState
       setPost(data);
     };
 
     extraerPost();
+    // cuando se tienen dependecias en useEffect la funcion debe ir adentro 
   }, [idPost]);
 
   return (
